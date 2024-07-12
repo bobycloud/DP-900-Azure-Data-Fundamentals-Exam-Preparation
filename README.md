@@ -321,3 +321,74 @@ Microsoft Azure is a cloud platform supporting various data services for transac
   - Data visualization
   - Data governance and management
 
+# Understand Relational Data
+
+## Overview
+In a relational database, collections of entities from the real world are modeled as tables. An entity can be anything for which you want to record information, typically important objects and events.
+
+## Key Concepts
+
+### Entities and Tables
+- **Entities:** Represent real-world objects or events (e.g., customers, products, orders).
+- **Tables:** Model collections of entities. Each table contains rows, with each row representing a single instance of an entity.
+
+**Example:**
+- **Customer Table:** Each row contains data for a single customer.
+- **Product Table:** Each row defines a single product.
+- **Order Table:** Each row represents an order made by a customer.
+- **Line Item Table:** Each row represents a product included in an order.
+
+### Columns and Data Types
+- **Columns:** Define attributes of the entity. Each row in a table has the same columns, though not all columns need to have a value (can be NULL).
+- **Data Types:** Each column stores data of a specific datatype.
+
+**Common Data Types:**
+- **Text Data:** Character-based (fixed or variable length) for columns like `Email`.
+- **Numeric Data:** Decimal or integer values for columns like `Price` or `Quantity`.
+- **Date/Time Data:** Date and time values for columns like `OrderDate`.
+
+### Standard Datatypes
+- Most database systems support standard datatypes defined by the American National Standards Institute (ANSI).
+
+## Example Scenario
+In a retail system:
+- **Customer Table:** Contains customer details such as `FirstName`, `LastName`, `Email`, `MiddleName`.
+- **Product Table:** Contains product details such as `ProductID`, `ProductName`, `Price`.
+- **Order Table:** Contains order details such as `OrderID`, `CustomerID`, `OrderDate`.
+- **Line Item Table:** Contains line items within an order such as `OrderID`, `ProductID`, `Quantity`.
+
+# Understand Normalization
+
+## Overview
+Normalization is a schema design process that minimizes data duplication and enforces data integrity in a database.
+
+## Core Principles of Normalization
+1. **Separate each entity into its own table.**
+2. **Separate each discrete attribute into its own column.**
+3. **Uniquely identify each entity instance (row) using a primary key.**
+4. **Use foreign key columns to link related entities.**
+
+## Example Scenario
+
+### Un-normalized Data
+- **Issues:** 
+  - Data duplication.
+  - Combined customer and product details in the same cells.
+
+### Normalized Data
+- **Changes:**
+  - Each entity (e.g., customer, product, sales order, line item) is stored in its own table.
+  - Each attribute is in its own column.
+  - Primary keys uniquely identify rows.
+  - Foreign keys link related entities.
+
+### Benefits of Normalization
+- **Reduces Duplication:** Modifying a customer's address requires changing a single row.
+- **Ensures Data Integrity:** Values are constrained to appropriate data types.
+- **Granularity:** Allows detailed querying (e.g., filtering customers by city).
+- **Referential Integrity:** RDBMS enforces that foreign key values exist in the related table (e.g., no orders for non-existent customers).
+
+### Composite Keys
+- **Usage:** Unique combination of multiple columns to identify rows.
+- **Example:** LineItem table uses a combination of `OrderNo` and `ItemNo` to identify a line item in an order.
+
