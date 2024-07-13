@@ -1,4 +1,4 @@
-# Azure Data Fundamentals [DP-900] Exam Prepration
+# DP-900 Azure Data Fundamentals - Exam Prep
 
 ## Skills Assessment
 - Describe core data concepts (15-20%)
